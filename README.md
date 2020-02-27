@@ -33,7 +33,7 @@ Anaconda Python-3.7.4 (Python3 && PIL for image preprocess)
 
 3 link ${CURDIR}/data/ILSVRC2012_img_val to imagenet dataset path
 
-4 
+then
 ```
 export LD_LIBRARY_PATH=${CURDIR}/third_party_libs:${LD_LIBRARY_PATH}
 sh build.sh
