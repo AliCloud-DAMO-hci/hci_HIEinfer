@@ -2,6 +2,7 @@
 
 ## Summary
 This is an imagenet classification benchmark on HIE,an inference framework self-developed by Heterogeneous Computing Intelligence(HCI) team in Alibaba Cloud.
+
 The model was improved by Machine Intelligence Visual Technology(MIVT) team in Alibaba Cloud.
 
 ## Performance
@@ -20,6 +21,7 @@ OS :
 
 ## Dependencies
 ```
+cmake-3.8 or higher
 cuda-10.0
 cudnn-7.5.0
 Protobuf-3.6.1
@@ -28,7 +30,7 @@ Anaconda Python-3.7.4 (Python3 && PIL for image preprocess)
 
 
 ## Usage
-1 install dependencies above,set environment variables like PYTHONHOME
+1 install dependencies above,set environment variables like PYTHONHOME,LD_LIBRARY_PATH
 
 2 clone this repo,suppose your current absolute working path is ${CURDIR}
 
@@ -47,6 +49,6 @@ then
 ```
 export LD_LIBRARY_PATH=${CURDIR}/third_party_libs:${LD_LIBRARY_PATH}
 sh ./build.sh
-sh ./set_env.sh
+sh ./set_env.sh (make sure sudo privilege)
 ./build/bin/infer ./data/MIVT-NET.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
 ```
