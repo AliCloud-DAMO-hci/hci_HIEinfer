@@ -1,24 +1,21 @@
 # Dawnbench Imagenet Inference
 
 ## Summary
-This is an imagenet classification benchmark on HIE,an inference framework self-developed by heterogeneous computing intelligence team(HCI).
-
-The model was improved by offline vision intelligence team.
-
-Both from DAMO Academy,AliCloud.
+This is an imagenet classification benchmark on HIE,an inference framework self-developed by Heterogeneous Computing Intelligence(HCI) team in Alibaba Cloud.
+The model was improved by Machine Intelligence Visual Technology(MIVT) team in Alibaba Cloud.
 
 ## Performance
 ```
 top1 : 0.75794
 top5 : 0.93004
-latency : 0.4331 ms
+latency : 
 ```
 
 ## Enviroment
 ```
-CPU : Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
-GPU : Nvidia Tesla T4
-OS : Linux version 3.10.0-327.ali2018.alios7.x86_64 (gcc version 4.8.5 20150623 (Red Hat 4.8.5-4) (GCC) )
+CPU : 
+GPU :
+OS :
 ```
 
 ## Dependencies
@@ -51,5 +48,5 @@ then
 export LD_LIBRARY_PATH=${CURDIR}/third_party_libs:${LD_LIBRARY_PATH}
 sh ./build.sh
 sh ./set_env.sh
-./build/bin/infer ./data/model.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
+./build/bin/infer ./data/MIVT-NET.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
 ```
