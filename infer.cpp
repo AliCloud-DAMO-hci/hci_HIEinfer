@@ -33,8 +33,8 @@ void readImageLabels(const string & label_path,vector<pair<string,int> > & label
         vector<string> elems = StringUtil::Split(line," ");
         labels.emplace_back(elems[0],std::stoi(elems[1]));
     }
-    //ASSERT(labels.size()==NUM_IMAGES);
     fin.close();
+    //ASSERT(labels.size()==NUM_IMAGES);
 
     cout << "read label success , " << labels.size() << " labels" << endl;
 }
@@ -66,7 +66,7 @@ int main(int argc,char *argv[])
     readImageLabels(label_path,labels);
 
     // warm up
-    static constexpr int NUM_WARM_UP = 10;
+    static constexpr int NUM_WARM_UP = 20;
     for(int img_id=0;img_id<NUM_WARM_UP;img_id++) {
         const string image_path = image_dir + "/" + labels[img_id].first;
         status = engine->LoadImagePreprocessData(image_path);
@@ -77,6 +77,7 @@ int main(int argc,char *argv[])
         engine->InferSync();
     }
     
+    vector<std::pair<float,int> > output_value;
     float time_elapsed = 0.0f;
     int num_total = 0;
     int top1 = 0,top5 = 0;
@@ -99,7 +100,6 @@ int main(int argc,char *argv[])
         //cout << std::chrono::duration<float,std::milli>(end-start).count() << endl;
         time_elapsed += std::chrono::duration<float,std::milli>(end-start).count();
 
-        vector<std::pair<float,int> > output_value;
         status = engine->CopyOutputToCPU(output_value);
         if(status==false) {
             cout << "copy output value failed" << endl;
