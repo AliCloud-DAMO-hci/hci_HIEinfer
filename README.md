@@ -1,19 +1,20 @@
 # Dawnbench Imagenet Inference
 
 ## Summary
-This is an imagenet classification benchmark on HIE,an inference framework self-developed by Heterogeneous Computing Intelligence(HCI) team in Alibaba Cloud.
+Imagenet classification benchmark on HIE,an inference framework self-developed by Heterogeneous Computing Intelligence(HCI) team in Alibaba Cloud.
 
 The model was improved by Machine Intelligence Visual Technology(MIVT) team in Alibaba Cloud.
 
 ## Performance
 ```
-top1 : 0.75794
-top5 : 0.93004
-latency : 
+top1 accuracy : 0.75794
+top5 accuracy : 0.93004
+latency per image : 
 ```
 
 ## Enviroment
 ```
+ECS instance : 
 CPU : 
 GPU :
 OS :
