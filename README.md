@@ -1,7 +1,7 @@
 # Dawnbench Imagenet Inference
 
 ## Summary
-An imagenet classification benchmark on HIE.
+An imagenet classification benchmark on HIE engine.
 
 HIE (with falcon compute library) is a high-performance DL inference framework self-developed by Heterogeneous Computing Intelligence(HCI) team in Alibaba Cloud.
 
@@ -11,7 +11,7 @@ The model was improved by Machine Intelligence Visual Technology(MIVT) team in A
 ```
 top1 accuracy : 0.75794
 top5 accuracy : 0.93004
-latency per image : 
+latency per image : 0.4468
 ```
 
 ## Enviroment

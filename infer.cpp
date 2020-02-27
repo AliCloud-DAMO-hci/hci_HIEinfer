@@ -83,7 +83,7 @@ int main(int argc,char *argv[])
     int top1 = 0,top5 = 0;
 
     // classify images
-    for(size_t img_id=0;img_id<labels.size() ;img_id++)
+    for(size_t img_id=0;img_id<labels.size();img_id++)
     {
         const string image_path = image_dir + "/" + labels[img_id].first;
         const int stdlabel = labels[img_id].second;
@@ -130,7 +130,7 @@ int main(int argc,char *argv[])
         }
     }
     cout << "num_image : " << labels.size() << endl;
-    cout << "time elapsed : " << std::setiosflags(std::ios::fixed) << std::setprecision(5) 
+    cout << "time per image : " << std::setiosflags(std::ios::fixed) << std::setprecision(5) 
         << time_elapsed/labels.size() << endl;
 
     return 0;
