@@ -1,8 +1,11 @@
 # Dawnbench Imagenet Inference
 
 ## Summary
-This is an imagenet classification benchmark on HIE,an inference framework developed by heterogeneous computing intelligence team(HCI).
-The model was improved by offline vision intelligence team,both from DAMO Academy,AliCloud.
+This is an imagenet classification benchmark on HIE,an inference framework self-developed by heterogeneous computing intelligence team(HCI).
+
+The model was improved by offline vision intelligence team.
+
+Both from DAMO Academy,AliCloud.
 
 ## Performance
 ```
