@@ -31,7 +31,16 @@ Anaconda Python-3.7.4 (Python3 && PIL for image preprocess)
 
 2 clone this repo,suppose your current absolute working path is ${CURDIR}
 
-3 link ${CURDIR}/data/ILSVRC2012_img_val to imagenet dataset path
+3 link ./data/ILSVRC2012_img_val to imagenet dataset path
+```
+./imagenet/ILSVRC2012_img_val
+├── ILSVRC2012_val_00000001.JPEG
+├── ILSVRC2012_val_00000002.JPEG
+├── ILSVRC2012_val_00000003.JPEG
+├── ILSVRC2012_val_00000004.JPEG
+├── ILSVRC2012_val_00000005.JPEG
+├── ILSVRC2012_val_00000006.JPEG
+```
 
 then
 ```
