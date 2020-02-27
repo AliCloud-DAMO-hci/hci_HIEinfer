@@ -13,11 +13,13 @@ latency per image :
 ```
 
 ## Enviroment
+the hardware is ECS type ecs.gn6i-c8g1.2xlarge on Alibaba Cloud
+
+https://www.alibabacloud.com/help/doc-detail/25378.htm
 ```
-ECS instance : 
-CPU : 
-GPU :
-OS :
+CPU : Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
+GPU : Nvidia Tesla T4
+OS : Linux version 3.10.0-514.26.2.el7.x86_64 (gcc version 4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) )
 ```
 
 ## Dependencies
