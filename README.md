@@ -23,7 +23,7 @@ OS : Linux version 3.10.0-327.ali2018.alios7.x86_64 (gcc version 4.8.5 20150623 
 
 ## Dependencies
 ```
-cuda10.0
+cuda-10.0
 cudnn-7.5.0
 Protobuf-3.6.1
 Anaconda Python-3.7.4 (Python3 && PIL for image preprocess)
