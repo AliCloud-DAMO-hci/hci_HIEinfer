@@ -1,7 +1,8 @@
 # Dawnbench Imagenet Inference
 
 ## Summary
-This is an imagenet classification benchmark on HIE,an inference framework developed by heterogeneous computing intelligence team(HCI),the model was improved by offline vision intelligence team,both from DAMO Academy,AliCloud.
+This is an imagenet classification benchmark on HIE,an inference framework developed by heterogeneous computing intelligence team(HCI).
+The model was improved by offline vision intelligence team,both from DAMO Academy,AliCloud.
 
 ## Performance
 ```
@@ -13,8 +14,8 @@ latency : 0.4331 ms
 ## Enviroment
 ```
 CPU : Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
-GPU : Tesla T4
-OS : gcc version 4.8.5 20150623 (Red Hat 4.8.5-4) (GCC)
+GPU : Nvidia Tesla T4
+OS : Linux version 3.10.0-327.ali2018.alios7.x86_64 (gcc version 4.8.5 20150623 (Red Hat 4.8.5-4) (GCC) )
 ```
 
 ## Dependencies
