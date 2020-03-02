@@ -11,6 +11,7 @@
 #include <iostream>
 #include <algorithm>
 
+
 using std::cout;
 using std::endl;
 using std::pair;
@@ -18,6 +19,10 @@ using std::vector;
 using std::string;
 
 namespace {
+
+auto cmp = [](const pair<float,int> & a,const pair<float,int> & b) {
+    return a.first > b.first;
+};
 
 void readImageLabels(const string & label_path,vector<pair<string,int> > & labels)
 {
@@ -44,6 +49,7 @@ void readImageLabels(const string & label_path,vector<pair<string,int> > & label
 
 int main(int argc,char *argv[])
 {
+    std::ios::sync_with_stdio(false);
     if(argc != 4) {
         cout << "usage : " << argv[0] << " model_path image_dir label_path" << endl;
         return -1;
@@ -52,7 +58,7 @@ int main(int argc,char *argv[])
     const string model_path = argv[1];
     const string image_dir = argv[2];
     const string label_path = argv[3];
-    
+
     std::shared_ptr<IImageEngine> engine(CreateImageEngine());
     ASSERT(engine!=nullptr);
 
@@ -65,11 +71,25 @@ int main(int argc,char *argv[])
     vector<pair<string,int> > labels;
     readImageLabels(label_path,labels);
 
+    // image proprcess (written by python) is slow
+    cout << "add image preprocess data , total : " << labels.size() << endl;
+    for(size_t img_id=0;img_id<labels.size();img_id++)
+    {
+        const string image_path = image_dir + "/" + labels[img_id].first;
+        bool status = engine->AddImagePreprocessData(image_path);
+        if(status==false) {
+            cout << "add image preprocess data failed" << endl;
+            return -1;
+        }
+        if((img_id+1)%100 == 0) {
+            cout << img_id+1 << " images added" << endl;
+        }
+    }
+
     // warm up
     static constexpr int NUM_WARM_UP = 20;
     for(int img_id=0;img_id<NUM_WARM_UP;img_id++) {
-        const string image_path = image_dir + "/" + labels[img_id].first;
-        status = engine->LoadImagePreprocessData(image_path);
+        status = engine->LoadImagePreprocessData(img_id);
         if(status==false) {
             cout << "load image data failed" << endl;
             return -1;
@@ -82,13 +102,14 @@ int main(int argc,char *argv[])
     int num_total = 0;
     int top1 = 0,top5 = 0;
 
+    cout << "start classification" << endl;
     // classify images
-    for(size_t img_id=0;img_id<labels.size();img_id++)
+    for(int img_id=0;img_id<labels.size();img_id++)
     {
         const string image_path = image_dir + "/" + labels[img_id].first;
         const int stdlabel = labels[img_id].second;
 
-        status = engine->LoadImagePreprocessData(image_path);
+        status = engine->LoadImagePreprocessData(img_id);
         if(status==false) {
             cout << "load image data failed" << endl;
             return -1;
@@ -106,9 +127,6 @@ int main(int argc,char *argv[])
             return -1;
         }
 
-        auto cmp = [](const pair<float,int> & a,const pair<float,int> & b) {
-            return a.first > b.first;
-        };
         std::partial_sort(output_value.begin(),output_value.begin()+5,output_value.end(),cmp);
         for(int i=0;i<5;i++)
         {
@@ -129,9 +147,10 @@ int main(int argc,char *argv[])
                 << 1.0 * top5 / num_total << endl;
         }
     }
+
     cout << "num_image : " << labels.size() << endl;
     cout << "time per image : " << std::setiosflags(std::ios::fixed) << std::setprecision(5) 
-        << time_elapsed/labels.size() << endl;
+        << time_elapsed / num_total << endl;
 
     return 0;
 }

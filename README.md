@@ -9,9 +9,9 @@ The model was improved by Machine Intelligence Visual Technology(MIVT) team in A
 
 ## Performance
 ```
-top1 accuracy : 0.75794
-top5 accuracy : 0.93004
-latency per image : 0.4468
+top1 accuracy : 0.76366
+top5 accuracy : 0.93118
+latency per image : 0.3926
 ```
 
 ## Enviroment
@@ -55,5 +55,5 @@ then
 export LD_LIBRARY_PATH=${CURDIR}/third_party_libs:${LD_LIBRARY_PATH}
 sh ./build.sh
 sh ./set_env.sh (make sure sudo privilege)
-./build/bin/infer ./data/MIVT-NET.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
+./build/bin/infer ./data/MIVT-NET-v2.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
 ```
