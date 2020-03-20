@@ -9,9 +9,9 @@ The model was improved by Machine Intelligence Visual Technology(MIVT) team in A
 
 ## Performance
 ```
-top1 accuracy : 0.76366
-top5 accuracy : 0.93118
-latency per image : 0.3926
+top1 accuracy : 0.76376
+top5 accuracy : 0.93114
+latency per image : 0.3137
 ```
 
 ## Enviroment
@@ -28,7 +28,6 @@ OS : Linux version 3.10.0-514.26.2.el7.x86_64 (gcc version 4.8.5 20150623 (Red H
 ```
 cmake-3.8 or higher
 cuda-10.0
-cudnn-7.5.0
 Protobuf-3.6.1
 Anaconda Python-3.7.4 (Python3 && PIL for image preprocess)
 ```
@@ -55,5 +54,5 @@ then
 export LD_LIBRARY_PATH=${CURDIR}/third_party_libs:${LD_LIBRARY_PATH}
 sh ./build.sh
 sh ./set_env.sh (make sure sudo privilege)
-./build/bin/infer ./data/MIVT-NET-v2.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
+./build/bin/infer ./data/MIVTNET-v3.hie ./data/ILSVRC2012_img_val ./data/ILSVRC2012_labels.txt
 ```

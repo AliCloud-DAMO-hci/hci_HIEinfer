@@ -32,11 +32,14 @@ void readImageLabels(const string & label_path,vector<pair<string,int> > & label
     std::ifstream fin(label_path);
     ASSERT(fin.is_open());
 
+    int cnt = 0;
     string line;
     while(getline(fin,line)) {
         StringUtil::Trim(line);
         vector<string> elems = StringUtil::Split(line," ");
         labels.emplace_back(elems[0],std::stoi(elems[1]));
+        cnt++;
+        if(cnt == NUM_IMAGES) break;
     }
     fin.close();
     //ASSERT(labels.size()==NUM_IMAGES);
