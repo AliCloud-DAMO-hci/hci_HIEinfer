@@ -142,7 +142,7 @@ int main(int argc,char *argv[])
         num_total++;
 
         // print log
-        if(num_total%100 == 0) {
+        if(num_total%1000 == 0) {
             cout << "----------" << "processed " << num_total << " images" << "----------" << endl;
             cout << "top1 : " << std::setiosflags(std::ios::fixed) << std::setprecision(5) 
                 << 1.0 * top1 / num_total << endl;

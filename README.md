@@ -11,7 +11,7 @@ The model was improved by Machine Intelligence Visual Technology(MIVT) team in A
 ```
 top1 accuracy : 0.76376
 top5 accuracy : 0.93114
-latency per image : 0.3137
+latency per image : 0.3121
 ```
 
 ## Enviroment
